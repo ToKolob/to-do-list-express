@@ -1,11 +1,11 @@
 const express = require('express');
-
+const checklistsRouter = require('./src/routes/checklist');
 const app = express();
 
-app.get('/', (req, res) => {
-  res.send('<h1>Minha lista de tare fas</h1>')
-  
-})
+app.use(express.json());
+
+app.use("/checklists", checklistsRouter)
+
 app.listen(3000, () => {
-  console.log('Server running on port 3000');
+  console.log('Server running on port 3000')
 })
